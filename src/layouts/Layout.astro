@@ -70,6 +70,15 @@ const schemaOrg = {
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
     
+    <!-- Google Analytics (GA4) -->
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-SR0XTS2ENW" async></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SR0XTS2ENW');
+    </script>
+    
     <title>{title}</title>
   </head>
   <body class="bg-black text-neutral-100 antialiased">
