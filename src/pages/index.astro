@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const socialLinks = [
+  { name: 'MorphMarket', url: 'https://www.morphmarket.com/stores/darksidenoodles/', icon: 'morphmarket.png' },
+  { name: 'Instagram', url: 'https://www.instagram.com/darksidenoodles/', icon: 'instagram.png' },
+  { name: 'YouTube', url: 'https://www.youtube.com/@darksidenoodles', icon: 'youtube.png' },
+];
+---
+
+<Layout title="Darkside Noodles - Premium Reptile Breeding & Sales">
+  <main class="relative flex min-h-screen flex-col items-center justify-center px-4">
+    <!-- Vignette overlay -->
+    <div class="fixed inset-0 pointer-events-none bg-vignette"></div>
+
+    <header class="flex flex-col items-center">
+      <h1 class="sr-only">Darkside Noodles - Premium Reptile Breeding, Sales, and Expertise</h1>
+      <img
+        src="/logo.png"
+        alt="Darkside Noodles logo"
+        width="1200"
+        height="1200"
+        class="relative max-w-md w-full h-auto mb-12 animate-fade-in logo-glow"
+      />
+    </header>
+
+    <nav aria-label="Social media links" class="flex gap-6">
+      {socialLinks.map((link, index) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link flex items-center justify-center w-12 h-12 hover:scale-110 animate-fade-in focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-black rounded-full"
+          style={`animation-delay: ${1200 + index * 250}ms`}
+          aria-label={`Visit Darkside Noodles on ${link.name}`}
+        >
+          <img
+            src={`/${link.icon}`}
+            alt={`${link.name} icon`}
+            width="40"
+            height="40"
+            class="w-10 h-10 object-contain"
+          />
+        </a>
+      ))}
+    </nav>
+
+    <footer class="absolute bottom-4 text-center">
+      <p class="text-xs text-neutral-600">© {new Date().getFullYear()} Darkside Noodles. Premium Ball Python breeding and sales.</p>
+    </footer>
+  </main>
+</Layout>
